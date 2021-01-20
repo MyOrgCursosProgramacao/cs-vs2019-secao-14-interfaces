@@ -9,7 +9,7 @@ namespace src.Entities
         public DateTime Retirada { get; private set; }
         public DateTime Devolucao { get; private set; }
         public Veiculo Veiculo { get; private set; }
-        public Recibo Recibo { get; private set; }
+        public Recibo Recibo { get; set; }
 
         public AluguelDeVeiculo(DateTime retirada, DateTime devolucao, Veiculo veiculo)
         {
