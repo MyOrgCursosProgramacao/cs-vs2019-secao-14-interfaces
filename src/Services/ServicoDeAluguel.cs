@@ -7,12 +7,13 @@ namespace src.Entities.Services
         public double PrecoPorDia { get; private set; }
         public double PrecoPorHora { get; private set; }
 
-        private ImpostosBrasil _ImpostosBrasil = new ImpostosBrasil();
+        private IServicoDeImpostos _servicoDeImpostos;
 
-        public ServicoDeAluguel(double precoPorDia, double precoPorHora)
+        public ServicoDeAluguel(double precoPorDia, double precoPorHora, IServicoDeImpostos servicoDeImpostos)
         {
             PrecoPorDia = precoPorDia;
             PrecoPorHora = precoPorHora;
+            _servicoDeImpostos = servicoDeImpostos;
         }
 
         public void ProcessarRecibo(AluguelDeVeiculo aluguelDeVeiculo)
@@ -29,7 +30,7 @@ namespace src.Entities.Services
                 valorServico = PrecoPorDia * Math.Ceiling(duracao.TotalDays);
             }
 
-            double valorImposto = _ImpostosBrasil.Imposto(valorServico);
+            double valorImposto = _servicoDeImpostos.Imposto(valorServico);
 
             aluguelDeVeiculo.Recibo = new Recibo(valorServico, valorImposto);
         }
