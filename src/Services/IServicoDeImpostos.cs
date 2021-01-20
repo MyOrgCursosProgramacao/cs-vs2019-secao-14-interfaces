@@ -6,5 +6,6 @@ namespace src.Entities.Services
 {
     interface IServicoDeImpostos
     {
+        double Imposto(double quantia);
     }
 }
