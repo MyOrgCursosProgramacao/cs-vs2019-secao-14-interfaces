@@ -32,7 +32,7 @@ namespace src
             Console.Write("Preço por dia: R$ ");
             double precoPorDia = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-            ServicoDeAluguel servicoDeAluguel = new ServicoDeAluguel(precoPorDia, precoPorHora);
+            ServicoDeAluguel servicoDeAluguel = new ServicoDeAluguel(precoPorDia, precoPorHora, new ImpostosBrasil());
             servicoDeAluguel.ProcessarRecibo(aluguelDeVeiculo);
 
             Console.WriteLine();
