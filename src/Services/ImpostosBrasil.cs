@@ -1,6 +1,6 @@
 ﻿namespace src.Entities.Services
 {
-    class ImpostosBrasil
+    class ImpostosBrasil : IServicoDeImpostos
     {
         public double Imposto(double quantia)
         {
